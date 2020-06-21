@@ -30,5 +30,5 @@ app.post('/imageurl', (req,res) =>{image.handleApicall(req,res)});
 
 
 app.listen(process.env.PORT || 3000, ()=> {
-	console.log(`working on ${process.env.PORT}`)
+	console.log(`working on ${process.env.PORT}`);
 })
