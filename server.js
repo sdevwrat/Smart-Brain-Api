@@ -22,12 +22,13 @@ const db = knex({
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (res,req) => {res.send('it is working')})
 app.post('/signin', signin.handleSignin(db,bcrypt));
 app.post('/register',(req,res) =>{register.handleRegister(req,res,db,bcrypt)});
 app.put('/image', (req,res) =>{image.handleImage(req,res,db)});
 app.post('/imageurl', (req,res) =>{image.handleApicall(req,res)});
 
 
-app.listen(3000, ()=> {
-	console.log("working on 3000");
+app.listen(process.env.PORT || 3000, ()=> {
+	console.log(`working on ${process.env.PORT}`)
 })
